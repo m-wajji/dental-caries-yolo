@@ -1,0 +1,21 @@
+# Dataset and pretrained base weights (not pushed)
+/data/
+notebooks/yolo26n.pt
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# Jupyter
+.ipynb_checkpoints/
+
+# YOLO training runs
+runs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/

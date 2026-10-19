@@ -1,0 +1,19 @@
+# Dental caries detection with YOLO26
+# Install: pip install -r requirements.txt
+#
+# Note: this installs the CPU build of PyTorch, which is enough for data
+# preparation and inference. Training was done on Google Colab (T4 GPU).
+# On a machine with an NVIDIA GPU, install the CUDA build of PyTorch from
+# pytorch.org first, then run the command above.
+
+# YOLO26 training, evaluation and inference (also installs torch and torchvision)
+ultralytics==8.4.179
+
+# Libraries imported directly in the notebooks
+opencv-python>=4.8
+matplotlib>=3.7
+numpy>=1.24
+pillow>=10.0
+
+# Notebook environment
+jupyter
