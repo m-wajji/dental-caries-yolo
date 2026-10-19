@@ -40,6 +40,23 @@ pip install -r requirements.txt
 ```
 Download `Dataset.zip` from [Zenodo](https://zenodo.org/records/14827784), unzip it to `data/raw/`, then run the notebooks in order. Train in Colab, because there's no GPU support on AMD + Windows.
 
+## Run the web app
+
+A local Streamlit app: upload one or more intraoral photos and see the detected lesions drawn as boxes.
+
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+
+Run it from the repository root. It uses `models/best.pt` on the CPU. The confidence threshold slider in the sidebar defaults to 0.4, the screening threshold above. If `data/yolo/test/images/` exists, you can also pick a sample image from the test set.
+
+Every processed image is saved to `assets/outputs/` as `<name>_<timestamp>_annotated.jpg` plus a `<name>_<timestamp>.json` with the threshold, image size, inference time and box coordinates. Existing files are never overwritten. This folder is gitignored, because it contains people's photos.
+
+![Web app](assets/app_screenshot.png)
+
+The detection code lives in the `caries_detector/` package (`model.py`, `drawing.py`, `storage.py`), separate from the UI in `app.py`. Run the tests with `pytest` (needs `pip install pytest`).
+
 ## Dataset and credit
 *Annotated intraoral image dataset for dental caries detection*, Scientific Data (2025),
 [doi:10.1038/s41597-025-05647-9](https://doi.org/10.1038/s41597-025-05647-9). Licensed CC BY 4.0.
