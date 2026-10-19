@@ -2,6 +2,10 @@
 /data/
 notebooks/yolo26n.pt
 
+# Web app results contain people's mouth photos: never commit them
+assets/outputs/*
+!assets/outputs/.gitkeep
+
 # Python
 __pycache__/
 *.py[cod]
